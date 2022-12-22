@@ -29,9 +29,10 @@ class WebSecurityConfiguration(
 
         httpSecurity.formLogin()
             .loginPage("/signin")
-            .loginProcessingUrl("/signin")
+            .defaultSuccessUrl("/profile", true)
             .failureUrl("/signin?error")
-            .defaultSuccessUrl("/profile")
+            .usernameParameter("username")
+            .passwordParameter("password")
             .permitAll()
 
         httpSecurity.rememberMe()
