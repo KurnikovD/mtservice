@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mtservice
+    username: mtservice
+    password: D8rsIZP5MJjHnyv
+  jpa:
+    show-sql: false
+    generate-ddl: false
+    hibernate.ddl-auto: update
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true
+        globally_quoted_identifiers: true
+  main.allow-circular-references: true
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
