@@ -3,18 +3,19 @@ package com.example.mtservice.entity
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.Id
+import lombok.Getter
 import org.hibernate.annotations.GenericGenerator
 
 @Entity(name = "users")
 class UserEntity {
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private var id: String? = null
+    var id: Long? = null
 
     lateinit var username: String
 
     lateinit var password: String
+
+    var balance: Double = 0.0
 
     constructor()
 
