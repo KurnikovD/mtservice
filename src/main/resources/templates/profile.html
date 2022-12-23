@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>PROFILE</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>id</td>
+        <td>balance</td>
+    </tr>
+    <tr th:each="b : ${balanceDto}">
+        <td><span th:text="${b.id}">Id</span></td>
+        <td><span th:text="${b.balance}">Balance</span></td>
+    </tr>
+</table>
+
+<form action="/profile/balance/new" method="post">
+    <label>amount
+        <input type="number" placeholder="input amount" name="amount">
+    </label>
+
+    <input type="submit">
+</form>
+</body>
+</html>
