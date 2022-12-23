@@ -52,6 +52,6 @@ class BalanceController(
 
         balanceService.add(id, amount)
 
-        return "redirect:/balance"
+        return "redirect:/profile/balance/$id"
     }
 }
