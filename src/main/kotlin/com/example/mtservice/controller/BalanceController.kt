@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 @Controller
 @RequestMapping("/profile/balance")
 class BalanceController(
-    @Qualifier("queueDecorator")
+    @Qualifier("cacheDecorator")
     private val balanceService: BalanceService,
 ) {
 
