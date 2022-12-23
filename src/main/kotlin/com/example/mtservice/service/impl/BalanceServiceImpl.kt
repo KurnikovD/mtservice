@@ -16,7 +16,6 @@ class BalanceServiceImpl(private val balanceRepository: BalanceRepository) : Bal
                 balanceRepository.save(it)
             }, {
                 error("Balance not found")
-
             })
     }
 
