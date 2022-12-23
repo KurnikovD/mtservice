@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
 @RequestMapping("/profile/balance")
-class BalanceController(private val balanceService: BalanceService) {
+class BalanceController(
+    @Qualifier("queueDecorator")
+    private val balanceService: BalanceService,
+) {
 
     @GetMapping("/{id}")
     fun balance(
