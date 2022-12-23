@@ -13,7 +13,7 @@ class ProfileServiceImpl(private val balanceRepository: BalanceRepository) : Pro
         return balanceRepository.findAllByUserId(userId).map { BalanceDto(it.id!!, it.balance) }
     }
 
-    override fun addNewBalance(userId: Long, amount: Double) {
+    override fun addNewBalance(userId: Long, amount: Long) {
         balanceRepository.save(BalanceEntity(userId, amount))
     }
 }

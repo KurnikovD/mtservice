@@ -43,7 +43,7 @@ class BalanceController(
         userDetails: CustomUserDetails?,
         @PathVariable
         id: Long,
-        amount: Double,
+        amount: Long,
         model: Model,
     ): String {
         if (userDetails == null) {

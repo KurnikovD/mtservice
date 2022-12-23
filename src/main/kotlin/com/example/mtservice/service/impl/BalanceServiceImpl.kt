@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional
 class BalanceServiceImpl(private val balanceRepository: BalanceRepository) : BalanceService {
 
     @Transactional
-    override fun add(id: Long, amount: Double) {
+    override fun add(id: Long, amount: Long) {
         balanceRepository.findById(id)
             .ifPresentOrElse({
                 it.balance += amount
@@ -20,7 +20,7 @@ class BalanceServiceImpl(private val balanceRepository: BalanceRepository) : Bal
             })
     }
 
-    override fun get(id: Long): Double {
+    override fun get(id: Long): Long {
         return balanceRepository.findById(id)
             .map { it.balance }
             .orElseThrow { error("Balance not found") }

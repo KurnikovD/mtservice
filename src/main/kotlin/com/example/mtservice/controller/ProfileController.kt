@@ -31,7 +31,7 @@ class ProfileController(private val profileService: ProfileService) {
     fun newBalance(
         @AuthenticationPrincipal
         userDetails: CustomUserDetails?,
-        amount: Double,
+        amount: Long,
         model: Model,
     ): String {
         if (userDetails == null) {

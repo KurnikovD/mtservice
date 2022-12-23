@@ -10,13 +10,13 @@ class BalanceEntity {
     @Column(nullable = false)
     var id: Long? = null
 
-    var balance: Double = 0.0
+    var balance: Long = 0
 
     var userId: Long? = null
 
     constructor()
 
-    constructor(userId: Long, balance: Double) {
+    constructor(userId: Long, balance: Long) {
         this.balance = balance
         this.userId = userId
     }

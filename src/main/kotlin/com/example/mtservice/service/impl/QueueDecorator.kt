@@ -14,13 +14,13 @@ class QueueDecorator
 
     private val target: BalanceService = balanceService
 
-    private var queue: Queue<Pair<Long, Double>> = LinkedList()
+    private var queue: Queue<Pair<Long, Long>> = LinkedList()
 
-    override fun get(id: Long): Double {
+    override fun get(id: Long): Long {
         return target.get(id)
     }
 
-    override fun add(id: Long, amount: Double) {
+    override fun add(id: Long, amount: Long) {
         queue.add(Pair(id, amount))
     }
 
