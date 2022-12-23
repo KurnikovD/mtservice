@@ -11,8 +11,8 @@
         <td>id</td>
         <td>balance</td>
     </tr>
-    <tr th:each="b : ${balanceDto}">
-        <td><span th:text="${b.id}">Id</span></td>
+    <tr th:each="b : ${balances}">
+        <td><a th:href="@{/profile/balance/{id}(id = ${b.id})} "th:text="${b.id}">ID</a></td>
         <td><span th:text="${b.balance}">Balance</span></td>
     </tr>
 </table>

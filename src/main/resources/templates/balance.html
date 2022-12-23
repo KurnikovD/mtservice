@@ -3,14 +3,15 @@
       xsi:schemaLocation="http://www.thymeleaf.org ">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>BALANCE</title>
 </head>
 <body>
-<p><span th:text="${id}">Id</span></p>
-<p><span th:text="${balance}">Balance</span></p>
+<a href="/profile">Profile</a>
+<p>BalanceID: <span th:text="${id}">Id</span></p>
+<p>Balance: <span th:text="${balance}">Balance</span></p>
 
-<form action="/profile/balance/${id}/add" method="post">
-    <label>amount
+<form th:action="@{/profile/balance/{id}/add(id = ${id})}" method="post">
+    <label>Change balance
         <input type="number" placeholder="input amount" name="amount">
     </label>
 
