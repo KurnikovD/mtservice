@@ -1,11 +1,13 @@
 package com.example.mtservice.entity
 
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
+import jakarta.persistence.*
 
 @Entity(name = "balance")
 class BalanceEntity {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     var id: Long? = null
 
     var balance: Double = 0.0
