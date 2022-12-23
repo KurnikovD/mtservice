@@ -6,8 +6,7 @@ import jakarta.persistence.*
 class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
+    @GeneratedValue
     var id: Long? = null
 
     lateinit var username: String

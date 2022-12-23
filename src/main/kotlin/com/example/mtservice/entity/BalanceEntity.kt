@@ -6,8 +6,7 @@ import jakarta.persistence.*
 class BalanceEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
+    @GeneratedValue
     var id: Long? = null
 
     var balance: Long = 0
