@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><span th:text="${id}">Id</span></p>
+<p><span th:text="${balance}">Balance</span></p>
+
+<form action="/profile/balance/${id}/add" method="post">
+    <label>amount
+        <input type="number" placeholder="input amount" name="amount">
+    </label>
+
+    <input type="submit">
+</form>
+
+</body>
+</html>
