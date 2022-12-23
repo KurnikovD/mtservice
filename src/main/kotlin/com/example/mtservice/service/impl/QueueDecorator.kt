@@ -9,15 +9,13 @@ import java.util.*
 class QueueDecorator
     (
     @Qualifier("balanceServiceImpl")
-    balanceService: BalanceService,
+    private val balanceService: BalanceService,
 ) : BalanceService {
-
-    private val target: BalanceService = balanceService
 
     private var queue: Queue<Pair<Long, Long>> = LinkedList()
 
     override fun get(id: Long): Long {
-        return target.get(id)
+        return balanceService.get(id)
     }
 
     override fun add(id: Long, amount: Long) {
@@ -27,11 +25,12 @@ class QueueDecorator
     init {
         Thread {
             while (true) {
-                if (!queue.isEmpty()) {
-                    val poll = queue.poll()
-                    target.add(poll.first, poll.second)
+                if (queue.isNotEmpty()) {
+                    val (id, amount) = queue.poll()
+                    balanceService.add(id, amount)
                 }
             }
         }.start()
     }
+
 }
