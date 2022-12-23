@@ -7,7 +7,7 @@ import com.example.mtservice.service.ProfileService
 import org.springframework.stereotype.Service
 
 @Service
-class ProfileServiceImpl(private val balanceRepository: BalanceRepository): ProfileService {
+class ProfileServiceImpl(private val balanceRepository: BalanceRepository) : ProfileService {
 
     override fun getAllBalances(userId: Long): List<BalanceDto> {
         return balanceRepository.findAllByUserId(userId).map { BalanceDto(it.id!!, it.balance) }

@@ -32,7 +32,8 @@ class ProfileController(private val profileService: ProfileService) {
         @AuthenticationPrincipal
         userDetails: CustomUserDetails?,
         amount: Double,
-        model: Model): String {
+        model: Model,
+    ): String {
         if (userDetails == null) {
             return "redirect:/signin"
         }

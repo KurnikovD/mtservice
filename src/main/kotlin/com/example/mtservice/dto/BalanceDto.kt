@@ -1,6 +1,6 @@
 package com.example.mtservice.dto
 
-class BalanceDto (
+class BalanceDto(
     val id: Long,
-    val balance: Double
+    val balance: Double,
 )

@@ -20,9 +20,9 @@ class BalanceServiceImpl(private val balanceRepository: BalanceRepository) : Bal
             })
     }
 
-        override fun get(id: Long): Double {
+    override fun get(id: Long): Double {
         return balanceRepository.findById(id)
             .map { it.balance }
             .orElseThrow { error("Balance not found") }
-        }
     }
+}

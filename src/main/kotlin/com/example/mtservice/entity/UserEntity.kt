@@ -1,10 +1,7 @@
 package com.example.mtservice.entity
 
 import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
 import jakarta.persistence.Id
-import lombok.Getter
-import org.hibernate.annotations.GenericGenerator
 
 @Entity(name = "users")
 class UserEntity {
