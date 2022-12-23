@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 @Controller
 @RequestMapping("/signup")
 class SignupController(
-    private val userService: UserService
+    private val userService: UserService,
 ) {
 
     @GetMapping

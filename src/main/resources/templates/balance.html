@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>BALANCE</title>
+</head>
+<body>
+<a href="/profile">Profile</a>
+<p>BalanceID: <span th:text="${id}">Id</span></p>
+<p>Balance: <span th:text="${balance}">Balance</span></p>
+
+<form th:action="@{/profile/balance/{id}/add(id = ${id})}" method="post">
+    <label>Change balance
+        <input type="number" placeholder="input amount" name="amount">
+    </label>
+
+    <input type="submit">
+</form>
+
+</body>
+</html>

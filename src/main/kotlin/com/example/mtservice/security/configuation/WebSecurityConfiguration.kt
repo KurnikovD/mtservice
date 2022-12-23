@@ -17,13 +17,13 @@ import javax.sql.DataSource
 @Configuration
 @EnableWebSecurity
 class WebSecurityConfiguration(
-    private val userDetailsService: UserDetailsService
+    private val userDetailsService: UserDetailsService,
 ) {
 
     @Bean
     fun securityFilterChain(
         httpSecurity: HttpSecurity,
-        tokenRepository: PersistentTokenRepository
+        tokenRepository: PersistentTokenRepository,
     ): SecurityFilterChain {
         httpSecurity.csrf().disable()
 

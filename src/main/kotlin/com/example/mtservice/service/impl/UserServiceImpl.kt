@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service
 @Service
 class UserServiceImpl(
     private val userRepository: UserRepository,
-    private val passwordEncoder: PasswordEncoder
-): UserService {
+    private val passwordEncoder: PasswordEncoder,
+) : UserService {
     override fun signup(userDto: UserDto) {
         val user = UserEntity(
             userDto.username,

@@ -1,16 +1,13 @@
 package com.example.mtservice.entity
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.Id
-import org.hibernate.annotations.GenericGenerator
+import jakarta.persistence.*
 
 @Entity(name = "users")
 class UserEntity {
+
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private var id: String? = null
+    @GeneratedValue
+    var id: Long? = null
 
     lateinit var username: String
 
