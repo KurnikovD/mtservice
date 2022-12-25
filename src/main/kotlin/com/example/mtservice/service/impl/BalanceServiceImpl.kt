@@ -2,8 +2,10 @@ package com.example.mtservice.service.impl
 
 import com.example.mtservice.repository.BalanceRepository
 import com.example.mtservice.service.BalanceService
+import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import org.springframework.web.server.ResponseStatusException
 
 @Service
 class BalanceServiceImpl(private val balanceRepository: BalanceRepository) : BalanceService {
@@ -15,7 +17,7 @@ class BalanceServiceImpl(private val balanceRepository: BalanceRepository) : Bal
                 it.balance += amount
                 balanceRepository.save(it)
             }, {
-                error("Balance not found")
+                throw ResponseStatusException(HttpStatus.NOT_FOUND, "Balance not found")
             })
     }
 
