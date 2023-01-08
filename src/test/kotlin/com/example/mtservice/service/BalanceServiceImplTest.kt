@@ -3,9 +3,11 @@ package com.example.mtservice.service
 import com.example.mtservice.entity.BalanceEntity
 import com.example.mtservice.repository.BalanceRepository
 import com.example.mtservice.service.impl.BalanceServiceImpl
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.mockito.Mockito.anyLong
 import org.mockito.Mockito.doReturn
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
@@ -33,10 +35,7 @@ class BalanceServiceImplTest {
         val empty: Optional<BalanceEntity> = Optional.empty()
         doReturn(empty).`when`(balanceRepository).findById(anyLong())
 
-        try {
-            balanceService.add(1L, 1)
-        } catch (e: ResponseStatusException) {
-            assertEquals(e.statusCode, HttpStatus.NOT_FOUND)
-        }
+        assertThrows<ResponseStatusException> { balanceService.add(1L, 1) }
+            .reason?.let { assertEquals("Balance not found", it) }
     }
 }
