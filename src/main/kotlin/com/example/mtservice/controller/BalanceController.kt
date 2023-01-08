@@ -1,5 +1,6 @@
 package com.example.mtservice.controller
 
+import com.example.mtservice.exception.NotEnoughMoneyException
 import com.example.mtservice.security.details.CustomUserDetails
 import com.example.mtservice.service.BalanceService
 import com.example.mtservice.service.UserService
@@ -66,6 +67,14 @@ class BalanceController(
     fun handleResponseStatusException(e: ResponseStatusException, model: Model): String {
         model.addAttribute("reason", e.reason)
         return "error"
+    }
+
+    @ExceptionHandler(NotEnoughMoneyException::class)
+    fun handleNotEnoughMoneyException(e: NotEnoughMoneyException, model: Model): String {
+        model.addAttribute("balance", e.balance)
+        model.addAttribute("id", e.balanceId)
+        model.addAttribute("error_message", e.message)
+        return "balance"
     }
 
 }

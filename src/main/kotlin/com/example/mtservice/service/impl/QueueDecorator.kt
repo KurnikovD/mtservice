@@ -1,5 +1,6 @@
 package com.example.mtservice.service.impl
 
+import com.example.mtservice.exception.NotEnoughMoneyException
 import com.example.mtservice.service.BalanceService
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
@@ -19,6 +20,10 @@ class QueueDecorator
     }
 
     override fun add(id: Long, amount: Long) {
+        val balance = get(id)
+        if (balance + amount < 0) {
+            throw NotEnoughMoneyException(id, balance)
+        }
         queue.add(Pair(id, amount))
     }
 

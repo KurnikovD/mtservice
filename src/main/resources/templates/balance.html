@@ -9,6 +9,7 @@
 <a href="/profile">Profile</a>
 <p>BalanceID: <span th:text="${id}">Id</span></p>
 <p>Balance: <span th:text="${balance}">Balance</span></p>
+<p><span th:text="${error_message}">ERROR</span> </p>
 
 <form th:action="@{/profile/balance/{id}/add(id = ${id})}" method="post">
     <label>Change balance
